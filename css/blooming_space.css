@@ -1,0 +1,14 @@
+
+.blue {
+	color: #4444da;
+  }
+  
+  .gold {
+	color: rgb(225, 193, 17);
+  }
+
+  /**************************flex containner***********************/
+  .button-flex-container{
+	background-image: linear-gradient(to right, #3c3cd8, #6666f1);
+	color: gold;
+  }

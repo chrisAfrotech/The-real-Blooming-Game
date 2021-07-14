@@ -1,0 +1,303 @@
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+* {
+	box-sizing: border-box;
+}
+* {
+	scrollbar-width:thin;
+	scrollbar-color: purple blue;
+}
+*::-webkit-scrollbar {
+	width: 10px;
+}
+*::-webkit-scrollbar-track {
+	background:transparent;
+}
+*::-webkit-scrollbar-thumb {
+	background-color: purple;
+}
+.flex-container {
+	display: flex;
+}
+.flex-container-perfect {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+body {
+	font-size: 16px;
+}
+#corps
+{
+	position:absolute;
+	left:0%;
+	top:0%;
+	width:100%;
+	height: 100%
+}
+#dashboard {
+	position:fixed;
+	flex-wrap: wrap;
+	left:0%;
+	top :-93%;
+	width:40%;
+	height:93%;
+	padding: 1%;
+	background-color: rgba(245, 245, 245, 0.802);
+	border-radius:0px 0px 15px 15px;
+	border: solid #6b6bf5;
+	transition:top 2s;
+}
+#income_expense {
+	flex-direction: column;
+	width:50%;
+	height:60%;	
+}
+.dashboard_element {
+	background-color: transparent;
+	width:100%;
+	height:50%;
+	overflow:auto;	
+	color :#1B1B19;
+}
+.dashboard_element .title{
+	background-image: linear-gradient(to right,#3c3cd8, rgba(218, 197, 77, 0.939));
+	background-color:purple;
+	padding:2%;
+	color:white;
+}
+.dashboard_element .entry {
+	font-weight: bold;
+	border-bottom: solid 0.1px #4646d5db;
+	padding:1%;
+	padding-left:2%; 
+}
+.dashboard_element .amount {
+	border-left: solid 0.1px #4646d5db;
+}
+#balance_sheet {
+	width:50%;
+	height: 60%
+}
+#asset_liabilities {
+	width: 100%;
+	height: 30%;
+}
+#liabilities {
+	flex-direction: column;
+}
+#asset_liabilities .dashboard_element{
+	width:50%;
+	height: 100%;
+}
+#bottom {
+	width:100%;
+	height:10%;
+}
+/* balance sheet designing in this section */
+#balance_sheet {
+	padding-left: 1%;
+	color:rgb(0, 0, 0);
+}
+#balance_sheet .sheet_title{
+	text-align: center;
+}
+#balance_sheet #exp_inc{
+	padding-left: 15%;
+	margin-top:10%;
+} 
+progress {
+	background-color: gold;
+	/*background: rgb(0, 200, 190);*/
+}
+#balance_sheet .amount {
+	text-align: right;
+}
+#sum_up {
+	margin-top: 40%;
+}
+#pay_day {
+	border-top:solid 1px;
+}
+canvas {
+	background-image:url('../game_field.jpg');
+	background-size: 100%;
+	border:solid 2px;
+}
+/*---------the style of the header of the game-----------------------*/
+#content {
+	width:100%;
+	height:100%;
+	background-image: url('../images/backgroung/0ee9315d-bc2a-351b-113f-bb88-f66439f5/pexels-adam-fejes-4668244.jpg');
+	background-size: cover;
+}
+#head {
+	position: fixed;
+	height: 5%;
+}
+#dash_button {
+	height:100%;
+	width: 15%;	
+	border-bottom: solid 1px white;
+	color: #2323d8;
+	background-image: linear-gradient(to right, gold, rgb(220, 202, 104));
+	cursor: pointer;
+}
+#dash_button + div {
+	width: 70%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	background-image: linear-gradient(to right,#3c3cd8, rgba(218, 197, 77, 0.939));
+}
+
+#dash_button + div a {
+	position: relative;
+	z-index: 1;
+	left:40%;
+	color:white;
+	font-family: 'arial';
+	animation-name: journal_effect;
+  	animation-duration: 6s;
+  	animation-delay: 0s;
+  	animation-timing-function: linear;
+  	animation-iteration-count: 3;
+}
+
+#dash_button + div + div {
+	height:100%;
+	width:15%;
+	border-bottom: solid 1px white;
+	color: white;
+	background-image: linear-gradient(to right,#3A7CB2, #64a3dd);
+	z-index: 2;
+}
+#dash_button + div + div div {
+	border-radius:50%;
+	height: 28px;
+	width:28px;
+	margin:10%;
+	background-color: white;
+}
+
+.dice {
+	position:absolute;
+	/*display:none;*/
+	left:40%;
+	top:10%;
+}
+/*--------card edition-----------------------*/
+#card {
+	position: absolute;
+	right:2%;
+	top:30%;
+	height:50%;
+	width:30%;
+	flex-direction: column;
+	border-radius: 15px;
+	border: solid #6b6bf5;
+	color:black;
+	background-color: rgba(245, 245, 245, 0.802);
+}
+#card_image {
+	height:25%;
+
+}
+.img-card-rr{
+	background-color: teal;
+	background-size: cover;
+	justify-content: center;
+	height: 50px;
+	width: 50px;
+	border-radius: 5px;
+}
+#card_title {
+	height:10%;
+	font-size:105%;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color:rgb(49, 94, 240);
+}
+#card_text {
+	padding-left: 15%;
+	padding-right: 2%;
+	height:39%;
+}
+#card_button {
+	padding:2%;
+	padding-left: 6%;
+	padding-right: 6%;
+	height: 15%;
+
+}
+
+#card_button button {
+	background-image: linear-gradient(to right, #3c3cd8, #9898f2);
+	color:gold;
+	font-weight: bold;
+	width:90px;
+	border-radius: 10px;
+}
+
+#card_button button:hover{
+	width:90px;
+	color: #3c3cd8 ;
+	background-image: linear-gradient(to right, gold, rgb(208, 188, 79));
+    box-shadow: 5px 5px 5px 5px rgba(88, 95, 24, 0.85);
+}
+
+#card_footer {
+	height:11%;
+	padding: 1%;
+	margin-bottom: 5px;
+	justify-content: center;
+	align-items: center;
+}
+#card_footer button {
+	background-image: linear-gradient(to right,#3c3cd8, rgba(218, 197, 77, 0.939));
+	color:white;
+	font-weight: bold;
+	width:90px;
+	border-radius: 10px;
+	font-weight: bold;
+	margin-left: 15px;
+}
+
+#card_footer button:hover{
+	width:90px;
+	background-image: linear-gradient(to right, #3c3cd8, #6666f1);
+	color:gold;
+	box-shadow: 5px 5px 5px 5px rgba(100, 119, 182, 0.85);
+}
+
+
+/* cashflow button style */
+#cash_flow_button {
+	position: fixed;
+	bottom: 0%;
+	right: 0%;
+	background-image: linear-gradient(to right,#3c3cd8, gold);
+	font-weight: bold;
+	padding:1%;
+	margin:1%;
+	border-radius: 5em;
+	display: none;
+	border:none;
+}
+/*-----------------animation*--------------------------*/
+@keyframes journal_effect {
+  from {left:0%;}
+  to {left:100%;}
+}

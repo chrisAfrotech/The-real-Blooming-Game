@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+ <head>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0">
+		<link rel="stylesheet" href="css/style_main.css">
+		<link rel="stylesheet" href="css/blooming_space.css">
+        <title>THE REAL BLOOMING GAME</title>
+</head>
+<body>
+<div id="corps">
+	<div id ="head" class ="col-12 flex-container">
+		<div id="dash_button" class ="flex-container-perfect">Financial Statement</div>
+		<div ><a><b><span  class="yellow">Gain more insight in financial literacy.</span></b></a></div>
+		<div class="flex-container-perfect">
+				<div></div>
+				<div></div>
+		</div>
+	</div>
+	<div id ="content" class="flex-container-perfect">
+		<img id = "field" src ="game_field.jpg" style="display:none;"/>
+		<img id ="pion" src ="a.png" style="display:none"/>
+		<canvas width=1280 height= 841>
+		</canvas>
+	</div>
+</div>
+<div id="dashboard" class ="flex-container">
+	<div id="income_expense" class = "flex-container">
+		<div id="income" class ="dashboard_element">
+			<div class="title col-12">INCOME</div>
+			<div class = "flex-container col-12">
+				<div class="entry col-9">item 1</div>
+				<div class="amount entry col-3">100</div>
+			</div>
+		</div>
+		<div id="expense" class ="dashboard_element">
+			<div class="title col-12">EXPENSES</div>
+			<div class = "flex-container col-12">
+				<div class="entry col-9">item 1</div>
+				<div class="amount entry col-3">100</div>
+			</div>
+		</div>
+	</div>
+	<div id="balance_sheet">
+		<div class="sheet_title">
+			Increase the passing income to escape the Rat Race.
+		</div>
+		<div id="exp_inc">
+			<span>Total Expense: </span><span id="total_expense">amount</span>
+			<progress id= "progress" value=66 max=100>
+			</progress>
+			<div>
+				<span>Passive Income: </span><span id="passive_income">amount</span>
+			</div>
+		</div>
+		<div id = "sum_up">
+			<div id ="cash" class="flex-container">
+				<span class="col-8">CASH:</span><span class="col-4 amount">amount</span>
+			</div>
+			<div id ="Total_income" class="flex-container">
+				<span class="col-8">Total Income:</span><span class="col-4 amount">amount</span>
+			</div>
+			<div id ="Total_expense" class="flex-container">
+				<span class="col-8">Total Expenses:</span><span class="col-4 amount">amount</span>
+			</div>
+			<div id ="pay_day" class="flex-container">
+				<span class="col-8">PAYDAY:</span><span class="col-4 amount">amount</span>
+			</div>
+		</div>
+	</div>
+	<div id="asset_liabilities" class="flex-container">
+		<div id="asset" class ="dashboard_element">
+			<div class="title col-12">ASSETS</div>
+			<div class = "flex-container col-12">
+				<div class="entry col-9">item 1</div>
+				<div class="amount entry col-3">100</div>
+			</div>
+		</div>			
+		<div id="liabilities" class ="dashboard_element">
+			<div class="title col-12">LIABILITIES</div>
+			<div class = "flex-container col-12">
+				<div class="entry col-9">item 1</div>
+				<div class="amount entry col-3">100</div>	
+			</div>
+		</div>
+	</div>
+	<div id="bottom">
+	</div>
+</div>
+<div id="card" class="flex-container">
+	<div id="card_image" class = "flex-container-perfect">
+		<div class="img-card-rr"></div>
+	</div>
+	<div id ="card_title">
+		<b><span class="blue">ROLL</span><span  class="gold"> DICE</span></b>
+	</div>
+	<div id ="card_text">
+		Before you start you turn, review you financial statement. You may also use this time to repay liabilities or repay money
+	</div>
+	<div id="card_button" class="flex-container">
+		<div class="col-6 flex-container"><button>Repay</button></div>
+		<div class="col-6 flex-container" style ="flex-direction: row-reverse;"><button>Borrow</button></div>	
+	</div>	
+	<div id="card_footer" class="flex-container">
+		<div class="col-6 flex-container"><button>ROLL DICE</button></div>
+		<div class="col-6 flex-container" style ="flex-direction: row-reverse;"><button>ROLL DICE</button></div>	
+	</div>
+</div>
+	<button id="cash_flow_button">	
+		get cash flow!
+	</button>
+	<script src ="js/slide_dashboard.js"></script>
+	<script src ="js/stateMachine.js"></script>
+	<script src ="js/canvas.js"></script>
+	<script src ="js/dataInjection.js"></script>
+	<script src ="js/field.js"></script>
+	<script src ="js/player.js"></script>
+	<script src ="js/pawnPosition.js"></script>
+	<script src ="js/possession.js"></script>
+	<!-- main part --><script>
+		var button_pressed=0;
+		var current_player;
+		var current_card;
+		var roll_dice;
+		var object_selected = 0;
+		var card = document.getElementById("card");
+		var card_initial = card.innerHTML;
+		var card_rat = [];
+		var MAX_BABY = 0;
+		var next="";
+		var die = init_die();
+		ratRaceMoving(1);
+		/*card.style.display = 'none';*/
+		card_rat.push( new Asset('payday','','','','','','payday'));
+		card_rat.push( new Liability("MCLaren","une voiture de luxe","./images/images/voiture.png",4000,50,1000,"deal"));
+		card_rat.push( new Liability("rent","the rent of the house","./images/images/maison.png",500,-10,100,"deal"));
+		card_rat.push( new Liability("Pile pomme","pile pile","./images/images/pommes.png",-40,0,-10,"doodad"));
+		card_rat.push( new Asset("boutique Cameroun","une boutique situé à mokolo","./images/images/marche.png",5000,10,1000,"deal"));
+		card_rat.push( new Asset("Une maison de luxe","une maison de luxe au carrefour onana","./images/images/villa1.png",4000,10,5000,"deal"));
+		card_rat.push( new Asset("Une maison de luxe","une maison de luxe au carrefour onana","./images/images/villa.png",4000,10,5000,"market"));
+		card_rat.push( new Asset("quicaillerie","une quincaollerie","./images/images/voiture.png",4000,10,1000,"market"));
+		card_rat.push( new Asset('charity','','','','','','charity'));
+		card_rat.push( new Asset('downsized','pathetically landed on dowsized square','xxx.jpg','','','','downsized'));
+		card_rat.push( new Liability('baby expenses','new baby','xx.jpg',2000,-280,2000,'baby'));
+		var rat_race = new PlayGround("rat_race",square_rat,card_rat);
+		var ngolo = new Player("Ngolo Kanté",30,"footballer","UCL",10064,10,'',rat_race);
+		//-------------
+			ngolo.getPossession(card_rat[1]);
+			ngolo.getPossession(card_rat[2]);
+			ngolo.getPossession(card_rat[3]);
+			ngolo.getPossession(card_rat[4]);
+			ngolo.getPossession(card_rat[5]);
+			current_player = ngolo;
+			dashboard.style.top = "5%";
+			displayed =true;
+			cardInjection('','initial');
+			dashBoardInjection(current_player);
+		var button0 = document.getElementById("card_button").querySelectorAll("button");
+		var button1 = document.getElementById("card_footer").querySelectorAll("button");
+		var cash_flow_button = document.getElementById("cash_flow_button");
+			button0[0].onclick = function(){
+				machine.transition('button00');
+			}			
+			button0[1].onclick = function(){
+				machine.transition('button01');
+			}			
+			button1[0].onclick = function(){
+				machine.transition('button10');
+			}	
+			button1[1].onclick = function(){
+				button_pressed = 'b11';
+				machine.transition('button10');
+			}
+			//-- cashflow button
+			cash_flow_button.onclick = function(){
+				alert("cash flow paid"+current_player.name);
+				current_player.payCashFlow();
+				dashBoardInjection(current_player);
+				this.style.display = 'none';
+			}
+			//------------------
+		asset.onclick = function(e){
+			let element = e.target.parentElement;
+			let k = parseInt(element.id);
+			object_selected = current_player.possession[k]; console.log(object_selected.name+" selected");
+			element.style.backgroundColor = 'red';
+			let i, elements = this.children;
+			k = elements.length; // not the best algorithm but i have not got time!
+			for(i=0;i<k;i++){
+				if(elements[i] != element){
+					elements[i].style.backgroundColor = 'green';
+				}
+			}
+		}
+		liabilities.onclick = function(e){
+			if(machine.value == 'repay'){
+				let element = e.target.parentElement;
+				let k = parseInt(element.id);
+				object_selected = current_player.possession[k]; console.log(object_selected.name+" selected");
+				element.style.backgroundColor = 'red';
+				let i, elements = this.children;
+				k = elements.length; // not the best algorithm but i have not got time!
+				for(i=0;i<k;i++){
+					if(elements[i] != element){
+						elements[i].style.backgroundColor = 'green';
+					}
+				}
+				//---- anoher important task to do
+				if(object_selected.type != 'loan'){
+					if(current_player.canPayBack(object_selected)){
+						cardInjection(object_selected,'repay_can');
+					}
+					else{cardInjection(object_selected,'repay_canot');}
+				}
+				else {
+					cardInjection(current_player.cash,'repay_loan');
+				}
+			}
+		}
+		asset.onclick = function(e){
+			if(machine.value == 'paycheck_fail' || current_player.position.play_ground.current_card.type == "payday"){
+				let element = e.target.parentElement;
+				let k = parseInt(element.id);
+				object_selected = current_player.possession[k]; console.log(object_selected.name+" selected");
+				element.style.backgroundColor = 'red';
+				let i, elements = this.children;
+				k = elements.length; // not the best algorithm but i have not got time!
+				for(i=0;i<k;i++){
+					if(elements[i] != element){
+						elements[i].style.backgroundColor = 'green';
+					}
+				}
+			//---- anoher important task to do
+				cardInjection(object_selected,'sale');
+			}
+		}/*
+		function game(){
+			let a =5;
+			const c =5;
+			var b;
+		}
+		aa = new game();
+		aa.a= 5;
+		aa.b= 5;
+		aa.c= 8;
+		alert(aa.a);*/
+	</script>
+</body>
+</html>	

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New_party.html</title>
+    <link rel="stylesheet" href="./css/styles_2.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="game_box">
+            <div class="game_box_top">
+                <div class="blooming_game">
+                    <h1><span class="blue"> BLOOMING </span><span class="gold">GAME</span></h1>
+                </div>
+            </div>
+            <div class="game_box_bottom_new_party">
+               <div class="intro">
+                    <p>
+                        <h3><B><span  class="blue">Game Setup</span></B></h3><br>
+                    </p>
+                </div>
+                 <div class="set_party">
+                   <form >
+                       <label for="time_party"><span class="text_part">Time of party</span></label> 
+                        <select name="time_of_party" size="1" id="time_of_party">
+                            <span class="blue">
+                                <option>5min</option>
+                                <option>10min</option>
+                                <option>15min</option>
+                                <option>20min</option>
+                                <option>30min</option>
+                                <option>35min</option>
+                                <option>40min</option>
+                                <option>45min</option>
+                                <option>50min</option>
+                                <option>55min</option>
+                                <option>1h</option>
+                                <option>1h15min</option>
+                                <option>1h30min</option>
+                                <option>2h</option>
+                            </span>
+                        </select>
+                   </form>
+                   <form >
+                        <label for="nbr_player"><span class="text_part">Number(s) of player(s)</span></label> 
+                        <select name="nbrplayers" size="1" id="nbrplayers">
+                            <span class="blue">
+                                <option>1</option>
+                                <option>2</option>  
+                            </span>                           
+                        </select>
+                    </form>
+                    <form >
+                        <label for="nbr_baby"><span class="text_part">Number(s) of baby(ies)</span></label> 
+                        <select name="nbr_baby" size="1" id="nbr_baby">
+                            <span class="blue">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </span>    
+                        </select>
+                    </form>
+               </div>
+               <div class="players" id="setplayers">
+
+               </div>
+                <div id="game_setup">
+                    <div id="game_setup_time_party"> </div>
+                    <div id="game_setup_baby_party"> </div> 
+                </div>
+            </div>     
+        </div>
+        <div class="button_new_party">
+            <ul>  
+                 <a href="start.html">
+                    <button class="ff button_start_game">
+                        <b>Previous</b>
+                     </button>
+                </a>
+                <a href="main.html">
+                    <button class="ff button_start_game">
+                    <b>New Party</b>
+                    </button>
+                </a>
+            </ul>
+        </div>   
+    </div>
+    <script src="./js/new_party.js"></script>
+</body>
+</html>

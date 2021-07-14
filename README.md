@@ -1,4 +1,4 @@
-# The-real-Blooming-Game
+# Blooming-Game
 
 Given the importance of finance in modern society, lacking financial literacy can be very damaging for an individual’s long-term financial success. 
 In fact, managing his money is not an easy task, it is a life-long journey of learning. 
